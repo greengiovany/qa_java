@@ -21,4 +21,9 @@ public class CatTest {
         String actual = cat.getSound();
         assertEquals(expected, actual);
     }
+
+    @Test
+    public void test() {
+
+    }
 }
