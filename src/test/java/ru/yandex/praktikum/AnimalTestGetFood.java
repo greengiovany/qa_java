@@ -7,8 +7,10 @@ import org.junit.runners.Parameterized;
 
 import java.util.List;
 
+import static org.junit.Assert.assertEquals;
+
 @RunWith(Parameterized.class)
-public class AnimalTestGetFood extends TestCase {
+public class AnimalTestGetFood {
 
     private final String animalVariant;
     private final List<String> expected;
