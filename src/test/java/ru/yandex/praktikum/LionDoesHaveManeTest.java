@@ -1,22 +1,17 @@
 package ru.yandex.praktikum;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.mockito.Mockito;
 
-import java.util.List;
-
-import static org.junit.Assert.*;
-
 @RunWith(Parameterized.class)
-public class LionTest {
-
+public class LionDoesHaveManeTest {
     private final String sexVariant;
     private final boolean expected;
 
-    public LionTest(String sexVariant, boolean expected) {
+    public LionDoesHaveManeTest(String sexVariant, boolean expected) {
         this.sexVariant = sexVariant;
         this.expected = expected;
     }
@@ -34,22 +29,10 @@ public class LionTest {
     public void test() throws Exception {
         try {
             Lion lion = new Lion(sexVariant);
-            boolean actual = lion.hasMane;
-            assertEquals(expected, actual);
+            boolean actual = lion.doesHaveMane();
+            Assert.assertEquals(expected, actual);
         } catch (Exception exception) {
             System.out.println("Используйте допустимые значения пола животного - самец или самка");
         }
-
     }
-
-    @Test
-    public void test2() {
-//        Feline feline = Mockito.mock(Feline.class);
-        Feline feline = new Feline();
-        Lion lion = new Lion(feline);
-        int actual = lion.getKittens();
-        System.out.println(actual);
-
-    }
-
 }

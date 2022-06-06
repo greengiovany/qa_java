@@ -1,22 +1,20 @@
 package ru.yandex.praktikum;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-
 @RunWith(Parameterized.class)
-public class AnimalTestGetFood {
+public class AnimalGetFoodTest {
 
-    private final String animalVariant;
+    private final String animalKind;
     private final List<String> expected;
 
-    public AnimalTestGetFood(String animalVariant, List<String> expected) {
-        this.animalVariant = animalVariant;
+    public AnimalGetFoodTest(String animalKind, List<String> expected) {
+        this.animalKind = animalKind;
         this.expected = expected;
     }
 
@@ -33,11 +31,10 @@ public class AnimalTestGetFood {
     public void shouldReturnFood() {
         Animal animal = new Animal();
         try {
-            List<String> actual = animal.getFood(animalVariant);
-            assertEquals(expected, actual);
+            List<String> actual = animal.getFood(animalKind);
+            Assert.assertEquals(expected, actual);
         } catch (Exception exception) {
             System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
         }
-
     }
 }
