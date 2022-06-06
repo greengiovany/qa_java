@@ -1,13 +1,8 @@
 package ru.yandex.praktikum;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import org.mockito.Mockito;
-
-import java.util.List;
-
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
@@ -31,7 +26,7 @@ public class LionTest {
     }
 
     @Test
-    public void test() throws Exception {
+    public void shouldCheckSexLion()  {
         try {
             Lion lion = new Lion(sexVariant);
             boolean actual = lion.hasMane;
@@ -43,8 +38,7 @@ public class LionTest {
     }
 
     @Test
-    public void test2() {
-//        Feline feline = Mockito.mock(Feline.class);
+    public void shouldCheckCountKittensLion() {
         Feline feline = new Feline();
         Lion lion = new Lion(feline);
         int actual = lion.getKittens();

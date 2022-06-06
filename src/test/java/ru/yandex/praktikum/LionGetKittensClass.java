@@ -6,8 +6,7 @@ import org.junit.Test;
 public class LionGetKittensClass {
 
     @Test
-    public void test2() {
-//        Feline feline = Mockito.mock(Feline.class);
+    public void shouldCheckCountLion() {
         int expected = 1;
         Feline feline = new Feline();
         Lion lion = new Lion(feline);
