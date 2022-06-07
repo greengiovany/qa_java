@@ -8,12 +8,12 @@ import org.junit.runners.Parameterized;
 import java.util.List;
 
 @RunWith(Parameterized.class)
-public class AnimalGetFoodTest {
+public class AnimalGetFoodPositiveTest {
 
     private final String animalKind;
     private final List<String> expected;
 
-    public AnimalGetFoodTest(String animalKind, List<String> expected) {
+    public AnimalGetFoodPositiveTest(String animalKind, List<String> expected) {
         this.animalKind = animalKind;
         this.expected = expected;
     }
@@ -22,8 +22,7 @@ public class AnimalGetFoodTest {
     public static Object[] getResult() {
         return new Object[][] {
             {"Травоядное", List.of("Трава", "Различные растения")},
-            {"Хищник", List.of("Животные", "Птицы", "Рыба")},
-            {"Тест", List.of("")}
+            {"Хищник", List.of("Животные", "Птицы", "Рыба")}
         };
     }
 
