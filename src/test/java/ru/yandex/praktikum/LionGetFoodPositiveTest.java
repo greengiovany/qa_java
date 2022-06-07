@@ -5,12 +5,14 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 
-@RunWith(Parameterized.class)
-public class LionDoesHaveManeTest {
-    private final String sexVariant;
-    private final boolean expected;
+import java.util.List;
 
-    public LionDoesHaveManeTest(String sexVariant, boolean expected) {
+@RunWith(Parameterized.class)
+public class LionGetFoodPositiveTest {
+    private final String sexVariant;
+    private final List<String> expected;
+
+    public LionGetFoodPositiveTest(String sexVariant, List<String> expected) {
         this.sexVariant = sexVariant;
         this.expected = expected;
     }
@@ -18,20 +20,22 @@ public class LionDoesHaveManeTest {
     @Parameterized.Parameters
     public static Object[] getResult() {
         return new Object[][] {
-            {"Самец", true},
-            {"Самка", false},
-            {"Тест", false}
+                {"Самец", List.of("Животные", "Птицы", "Рыба")},
+                {"Самка", List.of("Животные", "Птицы", "Рыба")}
         };
     }
 
     @Test
-    public void shouldReturnSexLion() throws Exception {
+    public void shouldCheckFood() {
+        Feline feline = new Feline();
+
         try {
-            Lion lion = new Lion(sexVariant);
-            boolean actual = lion.doesHaveMane();
+            Lion lion = new Lion(sexVariant, feline);
+            List<String> actual = lion.getFood();
             Assert.assertEquals(expected, actual);
         } catch (Exception exception) {
             System.out.println("Используйте допустимые значения пола животного - самец или самка");
         }
     }
+
 }

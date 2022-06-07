@@ -1,19 +1,18 @@
 package ru.yandex.praktikum;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class LionTest {
+public class LionDoesHaveManePositiveTest {
 
     Feline feline;
-
     private final String sexVariant;
     private final boolean expected;
 
-    public LionTest(String sexVariant, boolean expected) {
+    public LionDoesHaveManePositiveTest(String sexVariant, boolean expected) {
         this.sexVariant = sexVariant;
         this.expected = expected;
     }
@@ -27,24 +26,13 @@ public class LionTest {
     }
 
     @Test
-    public void shouldCheckSexLion()  {
+    public void shouldReturnSexLion() {
         try {
             Lion lion = new Lion(sexVariant, feline);
-            boolean actual = lion.hasMane;
-            assertEquals(expected, actual);
+            boolean actual = lion.doesHaveMane();
+            Assert.assertEquals(expected, actual);
         } catch (Exception exception) {
             System.out.println("Используйте допустимые значения пола животного - самец или самка");
         }
-
     }
-
-    @Test
-    public void shouldCheckCountKittensLion() throws Exception {
-        Feline feline = new Feline();
-        Lion lion = new Lion(sexVariant, feline);
-        int actual = lion.getKittens();
-        System.out.println(actual);
-
-    }
-
 }
