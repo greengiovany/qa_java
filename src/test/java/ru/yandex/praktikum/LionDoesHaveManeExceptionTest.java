@@ -13,17 +13,11 @@ public class LionDoesHaveManeExceptionTest {
     Feline feline;
 
     @Test
-    public void shouldHaveException() {
-        String sexVariant = "Тест";
-
+    public void shouldThrowExpectedException() {
+        String invalidSex = "Тест";
         try {
-            Lion lion = new Lion(sexVariant, feline);
-            boolean actual = lion.doesHaveMane();
-            boolean expected = false;
-            Assert.assertEquals(expected, actual);
-
-        } catch (Exception exception) {
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
+            new Lion(invalidSex, feline);
+        } catch (Exception e) {
         }
     }
 }
