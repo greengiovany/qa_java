@@ -21,7 +21,8 @@ public class CatTest {
     }
 
     @Test
-    public void shouldCheckFood() throws Exception {;
+    public void shouldCheckFood() throws Exception {
+        Feline feline = new Feline();
         Cat cat = new Cat(feline);
         List<String> expected = List.of("Животные", "Птицы", "Рыба");
         List<String> actual = cat.getFood();

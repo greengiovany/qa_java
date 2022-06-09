@@ -12,8 +12,7 @@ import java.util.List;
 @RunWith(MockitoJUnitRunner.class)
 public class LionGetFoodExceptionTest {
 
-    @Mock
-    Feline feline;
+
     @Test
     public void shouldHaveExceptionLionGetFood() {
         Lion lion = Mockito.mock(Lion.class);

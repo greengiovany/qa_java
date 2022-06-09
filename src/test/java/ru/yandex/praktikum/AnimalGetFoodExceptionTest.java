@@ -14,11 +14,12 @@ public class AnimalGetFoodExceptionTest {
     @Test
     public void shouldThrowExceptionAnimalGetFood() {
         String animalKind = "Тест";
-        Animal animal = Mockito.mock(Animal.class);
+        Animal animal = new Animal();
+        //Animal animal = Mockito.mock(Animal.class);
         try {
             animal.getFood(animalKind);
         } catch (Exception e) {
-            throw new RuntimeException(e);
+            System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
         }
 
     }
