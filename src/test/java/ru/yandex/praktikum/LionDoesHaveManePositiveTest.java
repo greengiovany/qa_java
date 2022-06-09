@@ -26,13 +26,9 @@ public class LionDoesHaveManePositiveTest {
     }
 
     @Test
-    public void shouldReturnSexLion() {
-        try {
+    public void shouldReturnSexLion() throws Exception {
             Lion lion = new Lion(sexVariant, feline);
             boolean actual = lion.doesHaveMane();
             Assert.assertEquals(expected, actual);
-        } catch (Exception exception) {
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
-        }
     }
 }

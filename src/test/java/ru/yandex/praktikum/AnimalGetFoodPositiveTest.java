@@ -27,13 +27,9 @@ public class AnimalGetFoodPositiveTest {
     }
 
     @Test
-    public void shouldReturnFood() {
+    public void shouldReturnFood() throws Exception {
         Animal animal = new Animal();
-        try {
             List<String> actual = animal.getFood(animalKind);
             Assert.assertEquals(expected, actual);
-        } catch (Exception exception) {
-            System.out.println("Неизвестный вид животного, используйте значение Травоядное или Хищник");
-        }
     }
 }

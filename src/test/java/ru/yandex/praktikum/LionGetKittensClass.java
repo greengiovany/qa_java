@@ -9,10 +9,8 @@ public class LionGetKittensClass {
     Lion lion;
 
     @Test
-    public void shouldCheckCountLion() throws Exception {
+    public void shouldCheckCountLion() {
         int expected = 1;
-//        Feline feline = new Feline();
-//        Lion lion = new Lion(feline);
         int actual = lion.getKittens();
         Assert.assertEquals(expected, actual);
 

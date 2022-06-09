@@ -26,16 +26,11 @@ public class LionGetFoodPositiveTest {
     }
 
     @Test
-    public void shouldCheckFood() {
+    public void shouldCheckFood() throws Exception {
         Feline feline = new Feline();
-
-        try {
-            Lion lion = new Lion(sexVariant, feline);
-            List<String> actual = lion.getFood();
-            Assert.assertEquals(expected, actual);
-        } catch (Exception exception) {
-            System.out.println("Используйте допустимые значения пола животного - самец или самка");
-        }
+        Lion lion = new Lion(sexVariant, feline);
+        List<String> actual = lion.getFood();
+        Assert.assertEquals(expected, actual);
     }
 
 }

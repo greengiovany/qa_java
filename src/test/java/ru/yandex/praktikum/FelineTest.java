@@ -1,13 +1,10 @@
 package ru.yandex.praktikum;
 
 import org.junit.Test;
-
 import java.util.List;
-
 import static org.junit.Assert.*;
 
 public class FelineTest {
-
     @Test
     public void shouldReturnFelineFamily() {
         Feline feline = new Feline();
