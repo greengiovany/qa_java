@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.mockito.Mockito;
 
 import java.util.List;
 
@@ -27,10 +28,9 @@ public class LionGetFoodPositiveTest {
 
     @Test
     public void shouldCheckFood() throws Exception {
-        Feline feline = new Feline();
+        Feline feline = Mockito.mock(Feline.class);
+        Mockito.when(feline.getFood("Хищник")).thenReturn(List.of("Животные", "Птицы", "Рыба"));
         Lion lion = new Lion(sexVariant, feline);
-        List<String> actual = lion.getFood();
-        Assert.assertEquals(expected, actual);
+        Assert.assertEquals(expected, lion.getFood());
     }
-
 }

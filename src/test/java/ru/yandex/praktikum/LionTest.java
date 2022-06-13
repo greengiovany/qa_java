@@ -1,5 +1,6 @@
 package ru.yandex.praktikum;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -26,20 +27,16 @@ public class LionTest {
     }
 
     @Test
-    public void shouldCheckSexLion() throws Exception {
-        Feline feline = Mockito.mock(Feline.class);
-        Lion lion = new Lion(sexVariant, feline);
-        boolean actual = lion.hasMane;
-        assertEquals(expected, actual);
+    public void shouldCheckSexLion() {
+        Lion lion = Mockito.mock(Lion.class);
+        Mockito.when(lion.doesHaveMane()).thenReturn(expected);
+        Assert.assertEquals(expected, lion.doesHaveMane());
     }
 
     @Test
-    public void shouldCheckCountKittensLion() throws Exception {
-        Feline feline = Mockito.mock(Feline.class);
-        Lion lion = new Lion(sexVariant, feline);
-        int actual = lion.getKittens();
-        System.out.println(actual);
-
+    public void shouldReturnKittensCount() {
+        Lion lion = Mockito.mock(Lion.class);
+        Mockito.when(lion.getKittens()).thenReturn(new Feline().getKittens());
+        Assert.assertEquals(new Feline().getKittens(), lion.getKittens());
     }
-
 }

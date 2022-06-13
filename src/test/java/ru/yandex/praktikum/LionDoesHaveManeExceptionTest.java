@@ -14,10 +14,6 @@ public class LionDoesHaveManeExceptionTest {
 
     @Test
     public void shouldThrowExpectedException() {
-        String invalidSex = "Тест";
-        try {
-            new Lion(invalidSex, feline);
-        } catch (Exception e) {
-        }
+        Assert.assertThrows(Exception.class, () -> new Lion("test", feline));
     }
 }

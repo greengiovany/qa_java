@@ -1,31 +1,31 @@
 package ru.yandex.praktikum;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.MockitoJUnitRunner;
 import java.util.List;
-import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CatTest {
+
     @Mock
     Feline feline;
 
     @Test
-    public void shouldCheckSoundMeow() {
+    public void shouldReturnSound() {
         Cat cat = new Cat(feline);
         String expected = "Мяу";
         String actual = cat.getSound();
-        assertEquals(expected, actual);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
-    public void shouldCheckFood() throws Exception {
-        Feline feline = new Feline();
+    public void testGetFoodCat() throws Exception {
         Cat cat = new Cat(feline);
-        List<String> expected = List.of("Животные", "Птицы", "Рыба");
-        List<String> actual = cat.getFood();
-        assertEquals(expected, actual);
+        Mockito.when(feline.eatMeat()).thenReturn(List.of("Животные", "Птицы", "Рыба"));
+        Assert.assertEquals(List.of("Животные", "Птицы", "Рыба"), cat.getFood());
     }
 }
